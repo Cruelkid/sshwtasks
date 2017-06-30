@@ -25,10 +25,10 @@ echo "<br/>";
 
 echo "<br/>Task 4<br/>";
 $c1 = new ContextT4(4400, 5500);
-echo equalizeMethods($c1);
+print_r(equalizeMethods($c1));
 echo "<br/>";
 
-echo "Task 5<br/>";
+echo "<br/>Task 5<br/>";
 $c2 = new ContextT5(1, 50);
 echo implode("<br/>", counter($c2));
 

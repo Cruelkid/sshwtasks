@@ -26,6 +26,13 @@
 		}
 	}
 
+	class ResultT4 {
+
+		public $easy;
+		public $hard;
+		public $winner;
+	}
+
 	function hard($n) {
 		$arr = [substr($n, 0, 1), substr($n, 1, 1), substr($n, 2, 1), substr($n, 3, 1), substr($n, 4, 1), substr($n, 5, 1)];
 		$odd = [];
@@ -64,12 +71,21 @@
 		}
 		$easy = 0;
 		$hard = 0;
+		$winner = new ResultT4();
 		for($i = $c->min; $i <= $c->max; $i++) {
-			if(easy($i)) $easy++;
-			if(hard($i)) $hard++;
+			if(easy($i)) {
+				$winner->easy = $easy++;
+			}
+			if(hard($i)) {
+				$winner->hard = $hard++;
+			}
 		}
-		return "easy: " . $easy . "</br>" . "hard: " . $hard . "</br>";
+		if($winner->easy > $winner->hard) {
+			$winner->winner = "Easy method wins";
+		} else {
+			$winner->winner = "Hard method wins";
+		}
+		return $winner;
 	}
-
 
 ?>
