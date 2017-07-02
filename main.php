@@ -6,7 +6,7 @@ require_once "tasks/task4.php";
 require_once "tasks/task5.php";
 
 echo "Task 1<br/>";
-echo chess(8, 8, '*');
+echo chess(3, 3, '*');
 echo "<br/>";
 
 echo "Task 2<br/>";
