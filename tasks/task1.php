@@ -1,26 +1,34 @@
 <?php
 
-	function chess($w, $h, $s) {
-		
-		$res = '';
-		
-		if($w < 0 || $h < 0 || $s == ' ') {
-			return "status: failed, reason: invalid input";
-		} else {
-			for($i = 0; $i < $h; $i++) {
-				for ($j = 0; $j < $w; $j++) { 
-					if($i % 2 == 0) {
-						$res = $res . $s . "&nbsp";
-					} else {
-						$res = $res . "&nbsp" . $s;
-					}
-				}
-					$res = $res . "</br>";
+class Chessboard
+{
+	public $width;
+	public $height;
+	public $symbol;
+
+	public function __construct($width, $height, $symbol) {
+		$this->width = $width;
+		$this->height = $height;
+		$this->symbol = $symbol;
+	}
+}
+
+function createChess(Chessboard $c) {
+	
+	$res = '';
+	
+	if($c->width < 0 || $c->height < 0 || $c->symbol == ' ') throw new Exception("Invalid input", 1);
+	for($i = 0; $i < $c->height; $i++) {
+		for ($j = 0; $j < $c->width; $j++) { 
+			if($i % 2 == 0) {
+				$res .= $c->symbol."&nbsp";
+			} else {
+				$res .= "&nbsp".$c->symbol;
 			}
 		}
-
-		return $res;
-
+			$res .= "</br>";
 	}
 
-?>
+	return $res;
+
+}
