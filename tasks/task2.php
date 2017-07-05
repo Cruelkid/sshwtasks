@@ -1,10 +1,9 @@
 <?php
-
 function d($t){echo "<xmp>".print_r($t, 1)."</xmp>";}
 function _d($t){d($t);die;}
 
-	class Letter {
-
+	class Letter
+	{
 		public $a;
 		public $b;
 
@@ -14,7 +13,6 @@ function _d($t){d($t);die;}
 			$this->b = $b;
 		
 		}
-		
 	}
 
 	function letter(Letter $l1, Letter $l2) {
@@ -26,5 +24,3 @@ function _d($t){d($t);die;}
 			return 0;
 		}
 	}
-
-?>
