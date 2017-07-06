@@ -52,5 +52,5 @@ function counter(ContextT5 $c) {
 			$y = $z;
 		}
 	}
-	return $res;
+	return implode(",", $res);
 }

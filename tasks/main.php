@@ -7,22 +7,23 @@ require_once "tasks/task5.php";
 
 echo "Task 1<br/>";
 $c = new Chessboard(8, 8, "*");
-// _d($c);
-echo createChess($c);
+$chess = new generateChessboard($c);
+$chess->resolveAsString();
 echo "<br/>";
 
 echo "Task 2<br/>";
-$l1 = new Letter(10, 10);
-$l2 = new Letter(15, 15);
-echo letter($l1, $l2);
+$l1 = new Letter(15, 15);
+$l2 = new Letter(10, 10);
+$cl = new MatchEnvelopes($l1, $l2);
+$cl->resolveAsString();
 echo "<br/>";
 
 echo "<br/>Task 3<br/>";
 $abc = new Triangle('abc', 10, 20, 22.36);
 $qwe = new Triangle('qwe', 5, 9.3, 6.66);
 $rty = new Triangle('rty', 66, 33, 47);
-$arr = [$abc, $qwe, $rty];
-echo implode("<br/>", geron($arr));
+$triangleArray = new TriangleSort($abc, $qwe, $rty);
+$triangleArray->resolveAsString();
 echo "<br/>";
 
 echo "<br/>Task 4<br/>";

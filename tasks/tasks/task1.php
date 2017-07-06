@@ -1,4 +1,5 @@
 <?php
+require_once "Task.php";
 class Chessboard
 {
 	public $width;
@@ -10,24 +11,54 @@ class Chessboard
 		$this->height = $height;
 		$this->symbol = $symbol;
 	}
+
 }
 
-function createChess(Chessboard $c) {
-	
-	$res = '';
-	
-	if($c->width < 0 || $c->height < 0 || $c->symbol == ' ') throw new Exception("Invalid input", 1);
-	for($i = 0; $i < $c->height; $i++) {
-		for ($j = 0; $j < $c->width; $j++) { 
-			if($i % 2 == 0) {
-				$res .= $c->symbol."&nbsp";
-			} else {
-				$res .= "&nbsp".$c->symbol;
-			}
-		}
-			$res .= "</br>";
+
+class generateChessboard extends Task
+{
+	public $chess;
+
+	public function __construct(Chessboard $c) {
+		$this->chess = $c;
 	}
 
-	return $res;
+	private function createChess() {
+		$res = '';
+		
+		for($i = 0; $i < $this->chess->height; $i++) {
+			for ($j = 0; $j < $this->chess->width; $j++) { 
+				if($i % 2 == 0) {
+					$res .= $this->chess->symbol."&nbsp";
+				} else {
+					$res .= "&nbsp".$this->chess->symbol;
+				}
+			}
+				$res .= "</br>";
+		}
+
+		return $res;
+	}
+
+	function isValid() {
+		if (!($this->chess->width < 0 || $this->chess->height < 0 || $this->chess->symbol == ' ')) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function validate() {
+		if ($this->isValid()) {
+			return true;
+		} else {
+			throw new Exception("Invalid input", 1);
+		}
+	}
+
+	public function run() {
+		echo $this->createChess();
+	}
 
 }
+

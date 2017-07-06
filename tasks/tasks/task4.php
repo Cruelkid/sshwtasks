@@ -1,4 +1,5 @@
 <?php
+require_once 'Task.php';
 class ContextT4
 {
 	public $min;
@@ -8,6 +9,13 @@ class ContextT4
 		$this->min = $min;
 		$this->max = $max;
 	}			
+}
+
+class ResultT4
+{
+	public $easy;
+	public $hard;
+	public $winner;
 }
 
 function easy($n) {
@@ -22,12 +30,6 @@ function easy($n) {
 	}
 }
 
-class ResultT4
-{
-	public $easy;
-	public $hard;
-	public $winner;
-}
 
 function hard($n) {
 	$arr = [substr($n, 0, 1), substr($n, 1, 1), substr($n, 2, 1), substr($n, 3, 1), substr($n, 4, 1), substr($n, 5, 1)];
