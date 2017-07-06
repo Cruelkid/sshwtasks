@@ -11,74 +11,96 @@ class ContextT4
 	}			
 }
 
-class ResultT4
+class ResultT4 extends Task
 {
+	public $context;
 	public $easy;
 	public $hard;
 	public $winner;
-}
 
-function easy($n) {
-	$s1 = substr($n, 0, 3);
-	$s2 = substr($n, 3, 6);
-	$arr1 = [substr($s1, 0, 1), substr($s1, 1, 1), substr($s1, 2, 3)];
-	$arr2 = [substr($s2, 0, 1), substr($s2, 1, 1), substr($s2, 2, 3)];
-	if(array_sum($arr1) == array_sum($arr2)) {
-		return true;
-	} else {
-		return false;
+	function __construct(ContextT4 $c) {
+		$this->context = $c;
 	}
-}
 
-
-function hard($n) {
-	$arr = [substr($n, 0, 1), substr($n, 1, 1), substr($n, 2, 1), substr($n, 3, 1), substr($n, 4, 1), substr($n, 5, 1)];
-	$odd = [];
-	$even = [];
-	for($i = 0; $i < count($arr); $i++) {
-		if($arr[$i] % 2 == 0) {
-			array_push($even, $arr[$i]);
+	function easy($n) {
+		$s1 = substr($n, 0, 3);
+		$s2 = substr($n, 3, 6);
+		$arr1 = [substr($s1, 0, 1), substr($s1, 1, 1), substr($s1, 2, 3)];
+		$arr2 = [substr($s2, 0, 1), substr($s2, 1, 1), substr($s2, 2, 3)];
+		if (array_sum($arr1) == array_sum($arr2)) {
+			return true;
 		} else {
-			array_push($odd, $arr[$i]);
+			return false;
 		}
 	}
 
-	if(array_sum($odd) == array_sum($even)) {
-		return true;
-	} else {
-		return false;
-	}
-}
+	function hard($n) {
+		$arr = [substr($n, 0, 1), substr($n, 1, 1), substr($n, 2, 1), substr($n, 3, 1), substr($n, 4, 1), substr($n, 5, 1)];
+		$odd = [];
+		$even = [];
+		for ($i = 0; $i < count($arr); $i++) {
+			if($arr[$i] % 2 == 0) {
+				array_push($even, $arr[$i]);
+			} else {
+				array_push($odd, $arr[$i]);
+			}
+		}
 
-function equalizeMethods(ContextT4 $c) {
-	if(strlen($c->max) > 6) throw new Exception("Max number is too long", 1);
-	
-	if(strlen($c->min) < 6) {
-		while (strlen($c->min)!=6) {
-			$c->min = 0 . $c->min;
+		if (array_sum($odd) == array_sum($even)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
-	if(strlen($c->max) < 6) {
-		while (strlen($c->max)!=6) {
-			$c->max = 0 . $c->max;
+	function equalizeMethods() {
+		$easy = 0;
+		$hard = 0;
+		for ($i = $this->context->min; $i <= $this->context->max; $i++) {
+			if ($this->easy($i)) {
+				$this->easy = $easy++;
+			}
+			if ($this->hard($i)) {
+				$this->hard = $hard++;
+			}
+		}
+		if ($this->easy > $this->hard) {
+			$this->winner = "Easy method wins";
+		} else {
+			$this->winner = "Hard method wins";
+		}
+		return "Easy: " . $this->easy . "<br/>" . "Hard: " . $this->hard . "<br/>" . $this->winner;
+	}
+
+	function isValid() {
+		if (!(strlen($this->context->max) > 6)) {
+			return true;
+		} else {
+			return false;
 		}
 	}
-	$easy = 0;
-	$hard = 0;
-	$winner = new ResultT4();
-	for($i = $c->min; $i <= $c->max; $i++) {
-		if(easy($i)) {
-			$winner->easy = $easy++;
-		}
-		if(hard($i)) {
-			$winner->hard = $hard++;
+
+	function validate() {
+		if ($this->isValid()) {
+			if (strlen($this->context->min) < 6) {
+				while (strlen($this->context->min)!=6) {
+					$this->context->min = 0 . $this->context->min;
+				}
+			}
+
+			if (strlen($this->context->max) < 6) {
+				while (strlen($this->context->max)!=6) {
+					$this->context->max = 0 . $this->context->max;
+				}
+			}
+			return true;
+		} else {
+			throw new Exception("Max number is too long", 1);
 		}
 	}
-	if($winner->easy > $winner->hard) {
-		$winner->winner = "Easy method wins";
-	} else {
-		$winner->winner = "Hard method wins";
+
+	function run() {
+		echo $this->equalizeMethods();
 	}
-	return $winner;
+
 }

@@ -28,11 +28,12 @@ echo "<br/>";
 
 echo "<br/>Task 4<br/>";
 $c1 = new ContextT4(4400, 5500);
-print_r(equalizeMethods($c1));
+$rt4 = new ResultT4($c1);
+$rt4->resolveAsString();
 echo "<br/>";
 
 echo "<br/>Task 5<br/>";
 $c2 = new ContextT5(1, 50);
-echo implode("<br/>", counter($c2));
-
+$rt5 = new ResultT5($c2);
+$rt5->resolveAsString();
 ?>

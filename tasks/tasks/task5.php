@@ -1,5 +1,5 @@
 <?php
-
+require_once 'Task.php';
 class ContextT5
 {
 	public $min;
@@ -25,32 +25,70 @@ class ContextT5
 	}
 }
 
-function counter(ContextT5 $c) {
-	$res = [];
+class ResultT5 extends Task
+{
+	public $context;
 
-	if(!is_null($c->length)) {
-		$x = 0;
-		$y = 1;
-		for($i = 0; $i < 100; $i++) {
-			$z = $x + $y;
-			if(strlen($z) == $c->length) {
-				$res[] = $z;
+	function __construct(ContextT5 $c) {
+		$this->context = $c;
+	}
+
+	function counter() {
+		$res = [];
+
+		if(!is_null($this->context->length)) {
+			$x = 0;
+			$y = 1;
+			for($i = 0; $i < 100; $i++) {
+				$z = $x + $y;
+				if(strlen($z) == $this->context->length) {
+					$res[] = $z;
+				}
+				$x = $y;
+				$y = $z;
 			}
-			$x = $y;
-			$y = $z;
+		} else {
+			$x = 0;
+			$y = 1;
+			for($i = 0; $i <= $this->context->max; $i++) {
+				$z = $x + $y;
+				if($z > $this->context->max) break;
+				if($z >= $this->context->min) {
+					$res[] = $z;
+				}
+				$x = $y;
+				$y = $z;
+			}
 		}
-	} else {
-		$x = 0;
-		$y = 1;
-		for($i = 0; $i <= $c->max; $i++) {
-			$z = $x + $y;
-			if($z > $c->max) break;
-			if($z >= $c->min) {
-				$res[] = $z;
+		return implode(", ", $res);
+	}
+
+	function isValid() {
+		if (!empty($this->context->length)) {
+			if ($this->context->length > 0) {
+				return true;
+			} else {
+				return false;
 			}
-			$x = $y;
-			$y = $z;
+		} else {
+			if ($this->context->min > 0 && $this->context->max > 0) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 	}
-	return implode(",", $res);
+
+	function validate() {
+		if ($this->isValid()) {
+			return true;
+		} else {
+			throw new Exception("Invalid input", 1);
+		}
+	}
+
+	function run() {
+		echo $this->counter();
+	}
+
 }
