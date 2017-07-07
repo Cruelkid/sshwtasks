@@ -28,8 +28,9 @@ class TriangleSort extends Task
 
 	function geron() {
 		$tmp = [];
+		$counter = count($this->triangles);
 
-		for($i = 0; $i < count($this->triangles); $i++) {
+		for($i = 0; $i < $counter; $i++) {
 		    $p = ($this->triangles[$i]->a + $this->triangles[$i]->b + $this->triangles[$i]->c) / 2;
 		    $g = sqrt($p * ($p - $this->triangles[$i]->a) * ($p - $this->triangles[$i]->b) * ($p - $this->triangles[$i]->c));
 		    array_push($tmp, $this->triangles[$i]=$g);
@@ -39,7 +40,10 @@ class TriangleSort extends Task
 	}
 
 	function isValid(Triangle $t) {
-		if (($t->a > 0) && ($t->b > 0) && ($t->c > 0) && (($t->a < ($t->b + $t->c) && ($t->b < ($t->a + $t->c) && ($t->c < ($t->a + $t->b)))))) {
+		if (($t->a > 0) && ($t->b > 0) && ($t->c > 0) &&
+			(($t->a < ($t->b + $t->c) &&
+			($t->b < ($t->a + $t->c) &&
+			($t->c < ($t->a + $t->b)))))) {
 			return true;
 		} else {
 			return false;

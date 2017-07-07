@@ -82,20 +82,20 @@ class ResultT4 extends Task
 
 	function validate() {
 		if ($this->isValid()) {
-			if (strlen($this->context->min) < 6) {
-				while (strlen($this->context->min)!=6) {
-					$this->context->min = 0 . $this->context->min;
-				}
-			}
-
-			if (strlen($this->context->max) < 6) {
-				while (strlen($this->context->max)!=6) {
-					$this->context->max = 0 . $this->context->max;
-				}
-			}
+			$this->addZeros($this->context->min);
+			$this->addZeros($this->context->max);
 			return true;
 		} else {
 			throw new Exception("Max number is too long", 1);
+		}
+	}
+
+	function addZeros($number)
+	{
+		if (strlen($number) < 6) {
+			while (strlen($number)!=6) {
+				$number = 0 . $number;
+			}
 		}
 	}
 
