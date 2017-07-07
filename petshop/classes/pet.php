@@ -14,7 +14,7 @@ abstract class Pet
 
 	public boolean function isYourType($type)
 	{
-		if (get_class($this) == $type) {
+		if (strcasecmp(get_class($this), $type)  == 0) {
 			return true;
 		} else {
 			return false;
