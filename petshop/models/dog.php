@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/pet.php';
+require_once 'classes/pet.php';
 class Dog extends Pet
 {
 	public $name;

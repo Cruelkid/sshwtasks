@@ -1,16 +1,13 @@
 <?php
-require_once '../classes/pet.php';
+require_once 'classes/pet.php';
 class Hamster extends Pet
 {
-	public $name;
 	public $color;
-	public $fluff;
 	public $price;
 
-	public function __construct($color, $fluff, $price)
+	public function __construct($color, $price)
 	{
 		$this->color = $color;
-		$this->fluff = $fluff;
 		$this->price = $price;
 	}
 
