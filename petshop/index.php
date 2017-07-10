@@ -37,4 +37,3 @@ foreach ($petsByType as $pet) {
 	echo "<br/>";
 }
 echo "<br/>";
-
