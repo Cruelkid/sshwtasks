@@ -1,48 +1,43 @@
 <?php
-require_once 'classes/petshop.php';
-require_once 'classes/pet.php';
-require_once 'models/cat.php';
-require_once 'models/dog.php';
-require_once 'models/hamster.php';
-require_once 'db.json';
+require_once 'test.php';
 
-function d($t){echo "<xmp>".print_r($t, 1)."</xmp>";}
-function _d($t){d($t);die;}
+$arr = $_SESSION['pets'];
 
-$result = file_get_contents("db.json");
-$decoded = json_decode($result);
-d($decoded);
-_d($decoded->Cats[0]);
+// _d($arr);
 
-// $cat1 = new Cat("Abbath", "black", 2, 666);
-// $cat2 = new Cat("Horgh", "white", 4, 500);
-// $dog1 = new Dog("Hoest", "grey", 700);
-// $dog2 = new Dog("Gaahl", "white", 600);
-// $hmstr1 = new Hamster("orange", 13);
-// $hmstr2 = new Hamster("grey", 11);
+$keys = [];
+$values = [];
 
-// $pets = [];
-// array_push($pets, $cat1);
-// array_push($pets, $cat2);
-// array_push($pets, $dog1);
-// array_push($pets, $dog2);
-// array_push($pets, $hmstr1);
-// array_push($pets, $hmstr2);
-$ps = new PetShop();
-
-_d($ps->getDataFromFile());
-
-echo "Average price: " . $ps->getAvgPrice($pets) . "<br/>";
-echo "<br/>";
-$petsByColor = $ps->getByColor("white", $pets);
-foreach ($petsByColor as $pet) {
-	print_r($pet);
-	echo "<br/>";
+foreach ($arr as $pet) {
+	foreach ($pet as $key => $value) {
+		if ($key != 'voice') {
+			array_push($keys, $key);
+			array_push($values, $value);	
+		}
+	}
 }
-echo "<br/>";
-$petsByType = $ps->getByType("cat", $pets);
-foreach ($petsByType as $pet) {
-	print_r($pet);
-	echo "<br/>";
-}
-echo "<br/>";
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PetShop</title>
+	<style type="text/css">
+		table, tr, td {
+		   border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<?php foreach ($arr as $pets):?>
+		<table style="">
+			<tr>
+				<?php foreach ($pets as $key => $value):?>
+					<?php if ($key != 'voice'):?>
+						<td rowspan="2"><?=$key?><br/><?=$value?></td>
+					<?php endif;?>
+				<?php endforeach;?>
+			</tr>
+		</table>
+	<?php endforeach;?>
+</body>
+</html>
