@@ -1,18 +1,24 @@
 <?php
-require_once 'test.php';
+require_once 'classes/petshop.php';
+require_once 'classes/pet.php';
+require_once 'models/cat.php';
+require_once 'models/dog.php';
+require_once 'models/hamster.php';
 
-$arr = $_SESSION['pets'];
+$ps = new PetShop();
 
-// _d($arr);
+$ps->getDataFromFile();
 
+$arr = $ps->pets;
 $keys = [];
 $values = [];
 
 foreach ($arr as $pet) {
 	foreach ($pet as $key => $value) {
-		if ($key != 'voice') {
-			array_push($keys, $key);
-			array_push($values, $value);	
+		if ($key != 'voice' && $key != 'fluff') {
+			$keys += [$key];
+			$values += [$value];
+			// array_push($values, $value);	
 		}
 	}
 }
@@ -32,7 +38,7 @@ foreach ($arr as $pet) {
 		<table style="">
 			<tr>
 				<?php foreach ($pets as $key => $value):?>
-					<?php if ($key != 'voice'):?>
+					<?php if ($key != 'voice' && $key != 'fluff'):?>
 						<td rowspan="2"><?=$key?><br/><?=$value?></td>
 					<?php endif;?>
 				<?php endforeach;?>

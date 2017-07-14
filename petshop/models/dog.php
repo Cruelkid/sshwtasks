@@ -1,7 +1,10 @@
 <?php
 require_once 'classes/pet.php';
+require_once 'traits/FluffyPet.php';
+
 class Dog extends Pet
 {
+	use FluffyPet;
 	public $name;
 	public $color;
 	public $price;

@@ -1,7 +1,10 @@
 <?php
 require_once 'classes/pet.php';
+require_once 'traits/FluffyPet.php';
+
 class Cat extends Pet
 {
+	use FluffyPet;
 	public $name;
 	public $color;
 	public $fluff;
@@ -14,16 +17,8 @@ class Cat extends Pet
 		$this->color = $color;
 		$this->fluff = $fluff;
 		$this->price = $price;
-	}
 
-	function isFluffy()
-	{
 		if ($this->fluff < 0) throw new Exception("Fluffiness cannot be lower than zero", 1);
-		if ($this->fluff > 3) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public function isYourName($name)

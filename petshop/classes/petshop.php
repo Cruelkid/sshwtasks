@@ -29,6 +29,7 @@ class PetShop
 
 		foreach ($arr as $pet) {
 			if ($pet->color == $color) {
+				// $res += get_object_vars($pet);
 				array_push($res, get_object_vars($pet));
 			}
 		}
@@ -43,6 +44,7 @@ class PetShop
 		foreach ($arr as $pet) {
 			if ($pet->isYourType($type) == $type) {
 				array_push($res, get_object_vars($pet));
+				// $res += get_object_vars($pet);
 			}
 		}
 
