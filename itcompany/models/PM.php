@@ -6,16 +6,13 @@ require_once 'classes/HardSpecialist.php';
 
 class PM extends HardSpecialist
 {
-	function __construct($name, $team)
-	{
-		$this->name = $name;
-		$this->team = $team;
-		$this->salary = "900$";
-		$this->position = "PM";
-	}
-
 	public function doWork()
 	{
 		return "I'm guiding my team!"
 	}
+
+	public function doITWork()
+    {
+        return true;
+    }
 }

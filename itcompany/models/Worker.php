@@ -7,4 +7,13 @@ abstract class Worker extends Person
 	public $salary;
 	public $team;
 	public $position;
+
+	public function __construct($name, $salary, $position, $team)
+    {
+        parent::__construct($name);
+        $this->salary = $salary;
+        $this->position = $position;
+        $this->team = $team;
+    }
+    
 }

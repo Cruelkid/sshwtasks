@@ -6,16 +6,13 @@ require_once 'classes/HardSpecialist.php';
 
 class QC extends HardSpecialist
 {
-	function __construct($name, $team)
-	{
-		$this->name = $name;
-		$this->team = $team;
-		$this->salary = "600$";
-		$this->position = "QC";
-	}
-
 	public function doWork()
 	{
 		return "I'm testing software!"
 	}
+
+	public function doITWork()
+    {
+        return true;
+    }
 }
