@@ -2,5 +2,5 @@
 
 abstract class Toy
 {
-	public abstract function className();
+	public abstract function getClassName();
 }

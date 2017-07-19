@@ -1,17 +1,15 @@
 <?php
 require_once 'factory/WoodenFactory.php';
-// require_once 'factory/MetalFactory.php';
-
-function d($t){echo "<xmp>".print_r($t, 1)."</xmp>";}
-function _d($t){d($t);die;}
+require_once 'factory/MetalFactory.php';
 
 $wf = new WoodenFactory();
-// _d($wf);
-// $mf = new MetalFactory();
+$mf = new MetalFactory();
+$woodDoll = $wf->getDoll();
+$metalDoll = $mf->getDoll();
+$woodCar = $wf->getCar();
+$metalCar = $mf->getCar();
 
-echo "test";
-
-echo $wf->getDoll->getClassName() . "<br/>";
-echo $wf->getCar->getClassName() . "<br/>";
-// echo $mf->getDoll->getClassName() . "<br/>";
-// echo $mf->getCar->getClassName() . "<br/>";
+echo $woodDoll->getClassName() . "<br/>";
+echo $metalDoll->getClassName() . "<br/>";
+echo $woodCar->getClassName() . "<br/>";
+echo $metalCar->getClassName() . "<br/>";

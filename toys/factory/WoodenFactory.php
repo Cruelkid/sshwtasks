@@ -1,12 +1,7 @@
 <?php
-// require_once 'Factory.php';
-// require_once 'classes/WoodenCar.php';
-// require_once 'classes/WoodenDoll.php';
-
-spl_autoload_register(function ($name)
-{
-    require_once $name . '.php';
-});
+require_once 'Factory.php';
+require_once 'classes/WoodenCar.php';
+require_once 'classes/WoodenDoll.php';
 
 class WoodenFactory extends Factory
 {
