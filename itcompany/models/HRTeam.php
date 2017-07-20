@@ -1,6 +1,9 @@
 <?php
 require_once 'classes/ITcompany.php';
 require_once 'models/Candidate.php';
+require_once 'models/PMRecruiter.php';
+require_once 'models/QCRecruiter.php';
+require_once 'models/DevRecruiter.php';
 
 class HRTeam
 {
@@ -11,23 +14,23 @@ class HRTeam
 	{
 		$this->itCompany = $itCompany;
 		$this->recruiters = [
-			"PM" = new PMRecruiter(),
-			"Dev" = new DevRecruiter(),
-			"QC" = new QCRecruiter()
+			"PM" => new PMRecruiter(),
+			"Dev" => new DevRecruiter(),
+			"QC" => new QCRecruiter()
 		];
 	}
 
-	public function canFindSpecialist(Candidate $need)
+	public function canFindSpecialist(/*Candidate*/ $need)
 	{
 		$candidates = $this->itCompany->candidates;
 		foreach ($candidates as $key => $candidate) {
-			return $candidate->cv == $need->cv;
+			return $candidate->cv == $need;
 		}
 	}
 
-	public function getSpecialist(Candidate $need, ITcompany $company)
+	public function getSpecialist(/*Candidate*/ $need, ITcompany $company)
     {
-        $cv = $need->cv;
+        $cv = $need;
         return $this->recruiters[$cv]->getSpecialist($need, $company);
     }
     

@@ -3,11 +3,11 @@ require_once 'models/HRTeam.php';
 
 class ITcompany
 {
-	public $candidates[];
-	public $teams[];
+	public $candidates = [];
+	public $teams = [];
 	public $hrTeam;
 
-	public function __construct($candidates[], $teams[])
+	public function __construct($candidates, $teams)
 	{
 		$this->candidates = $candidates;
 		$this->teams = $teams;
@@ -22,8 +22,9 @@ class ITcompany
 				if ($this->hrTeam->canFindSpecialist($need)) {
 					$teamMember = $this->hrTeam->getSpecialist($need, $this);
 					$team->addTeamMember($teamMember);
-					unset($needs[$key]);
-					$team->needs = array_values($needs);
+					// $team::equalNeedsWithValues($team->needs, $team->teamMembers);
+					// unset($needs[$key]);
+					// $team->needs = array_values($needs);
 				}
 			}
 		}

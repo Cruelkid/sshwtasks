@@ -4,7 +4,7 @@ require_once 'classes/Recruiter.php';
 
 class QCRecruiter extends Recruiter
 {
-    public function getSpecialist(Candidate $need, ItCompany $company)
+    public function getSpecialist(/*Candidate*/ $need, ItCompany $company)
     {
         $candidates = $company->candidates;
         foreach ($candidates as $key => $candidate) {
