@@ -1,49 +1,9 @@
 <?php
-require_once 'classes/petshop.php';
-require_once 'classes/pet.php';
-require_once 'models/cat.php';
-require_once 'models/dog.php';
-require_once 'models/hamster.php';
+include_once 'controllers/SiteController.php';
 
-$ps = new PetShop();
+function d($t){echo "<xmp>".print_r($t, 1)."</xmp>";}
+function _d($t){d($t);die;}
 
-$ps->getDataFromFile();
-
-$arr = $ps->pets;
-$keys = [];
-$values = [];
-
-foreach ($arr as $pet) {
-	foreach ($pet as $key => $value) {
-		if ($key != 'voice' && $key != 'fluff') {
-			$keys += [$key];
-			$values += [$value];
-			// array_push($values, $value);	
-		}
-	}
-}
+$controller = new SiteController();
+$controller->invoke();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PetShop</title>
-	<style type="text/css">
-		table, tr, td {
-		   border: 1px solid black;
-		}
-	</style>
-</head>
-<body>
-	<?php foreach ($arr as $pets):?>
-		<table style="">
-			<tr>
-				<?php foreach ($pets as $key => $value):?>
-					<?php if ($key != 'voice' && $key != 'fluff'):?>
-						<td rowspan="2"><?=$key?><br/><?=$value?></td>
-					<?php endif;?>
-				<?php endforeach;?>
-			</tr>
-		</table>
-	<?php endforeach;?>
-</body>
-</html>

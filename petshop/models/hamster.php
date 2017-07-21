@@ -5,6 +5,7 @@ require_once 'traits/FluffyPet.php';
 class Hamster extends Pet
 {
 	use FluffyPet;
+	public $name = "Hamster";
 	public $color;
 	public $price;
 	public $fluff = 7;

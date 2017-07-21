@@ -29,8 +29,28 @@ class PetShop
 
 		foreach ($arr as $pet) {
 			if ($pet->color == $color) {
-				// $res += get_object_vars($pet);
 				array_push($res, get_object_vars($pet));
+			}
+		}
+
+		return $res;
+	}
+
+	public function getWhiteOrFluffy($type, $arr)
+	{
+		$res = [];
+
+		if ($type == strcasecmp('White', $type)) {
+			foreach ($arr as $pet) {
+				if ($pet->color == "white") {
+					$res[] = get_object_vars($pet);
+				}
+			}
+		} elseif ($type == strcasecmp('Fluffy', $type)) {
+			foreach ($arr as $pet) {
+				if ($pet->isFluffy()) {
+					$res[] = get_object_vars($pet);
+				}
 			}
 		}
 
@@ -42,9 +62,8 @@ class PetShop
 		$res = [];
 
 		foreach ($arr as $pet) {
-			if ($pet->isYourType($type) == $type) {
+			if ($pet->isYourType($type)) {
 				array_push($res, get_object_vars($pet));
-				// $res += get_object_vars($pet);
 			}
 		}
 
