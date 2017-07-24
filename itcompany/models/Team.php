@@ -9,33 +9,34 @@ class Team extends ITcompany
 	public $name;
 	public $project;
 	public $teamMembers = [];
-	public $needs = ['PM', 'QC', 'QC', 'QC', 'Dev', 'Dev', 'Dev', 'Dev', 'Dev'];
+	private $needs = ['PM', 'QC', 'QC', 'QC', 'Dev', 'Dev', 'Dev', 'Dev', 'Dev'];
 
 	public function __construct($name, $project, $teamMembers)
 	{
 		$this->name = $name;
 		$this->project = $project;
 		$this->teamMembers = $teamMembers;
-		self::equalNeedsWithValues($this->needs, $teamMembers);
+		self::equalNeedsWithMembers($this->needs, $teamMembers);
 	}
 
-	private function equalNeedsWithValues($needs, $members)
+	private function equalNeedsWithMembers($needs, $members)
 	{
 		$counter = count($needs);
-		// while ($counter != 0) {
-			foreach ($members as $member) {
-				// d($counter);
-				foreach ($needs as $key => $value) {
-					// _d($value);
-					if ($member->cv == $value) {
-					// d($member);
-						unset($needs[$key]);
-						$counter = count($needs);
-						break;
-					}
+		foreach ($members as $member) {
+	// while ($counter >= 1) {
+	// d($counter);
+			// d($counter);
+			foreach ($needs as $key => $value) {
+				// _d($value);
+				if ($counter > 0 && $member->position == $value) {
+				// d($member->position);
+					unset($needs[$key]);
+					$counter = count($needs);
+					break;
 				}
 			}
-		// }
+	// }
+		}
 		$this->needs = $needs;
 	}
 
@@ -69,10 +70,18 @@ class Team extends ITcompany
         $position = $candidate->cv;
         $name = $candidate->name;
 
-        $newTeamMember = new $position($name, $salary, $position, $this->name);
-        array_push($this->teamMembers, $newTeamMember);
+        if ($position == 'QC') {
+        	$newTeamMember = new QC($name, $salary, $position, $this->name);
+		} elseif ($position == 'PM') {
+        	$newTeamMember = new PM($name, $salary, $position, $this->name);
+		} elseif ($position == 'Dev') {
+        	$newTeamMember = new Dev($name, $salary, $position, $this->name);
+		}
+
+        $this->teamMembers[] = $newTeamMember;
+        // array_push($this->teamMembers, $newTeamMember);
         // if (count($this->needs) != 0) {
-        	self::equalNeedsWithValues($this->needs, $this->teamMembers);
+        	self::equalNeedsWithMembers($this->needs, $this->teamMembers);
         // }
         // switch ($position) {
         //     case 'Dev':
