@@ -3,10 +3,17 @@ require_once 'classes/pet.php';
 require_once 'models/cat.php';
 require_once 'models/dog.php';
 require_once 'models/hamster.php';
+require_once 'DbMysql.php';
 
 class PetShop
 {
 	public $pets = [];
+	public $db;
+
+	public function __construct()
+	{
+		$this->db = new DbMysql();
+	}
 
 	public function getAvgPrice($arr)
 	{
@@ -72,10 +79,13 @@ class PetShop
 
 	public function getDataFromFile()
 	{
+/*
+*
+UNCOMMENT THIS TO USE JSON
+
 		$data = file_get_contents("db.json");
 		$result = json_decode($data, true);
 		$length = count($result);
-
 		foreach ($result as $key => $value) {
 			if ($key == 'Cats') {
 				foreach ($value as $cat) {
@@ -93,6 +103,23 @@ class PetShop
 					array_push($this->pets, $newHamster);
 				}
 			}
+		}
+*
+*/
+		$result = $this->db->myPDO->query('SELECT * FROM Cats');
+		foreach ($result as $cat) {
+			$newCat = new Cat($cat["Name"], $cat["Color"], $cat["Fluff"], $cat["Price"]);
+			$this->pets[] = $newCat;
+		}
+		$result = $this->db->myPDO->query('SELECT * FROM Dogs');
+		foreach ($result as $dog) {
+			$newDog = new Dog($dog["Name"], $dog["Color"], $dog["Price"]);
+			$this->pets[] = $newDog;
+		}
+		$result = $this->db->myPDO->query('SELECT * FROM Hamsters');
+		foreach ($result as $hamster) {
+			$newHamster = new Hamster($hamster["Color"], $hamster["Price"]);
+			$this->pets[] = $newHamster;
 		}
 	}
 }

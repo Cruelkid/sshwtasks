@@ -11,7 +11,6 @@ class SiteController
 	{
 		$this->model = new PetShop();
 		$this->model->getDataFromFile();
-		// $this->pets = $this->model->pets;
 	}
 
 	public function invoke()
