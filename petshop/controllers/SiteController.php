@@ -24,7 +24,6 @@ class SiteController
 				$result = $this->model->getWhiteOrFluffy($_GET['args'], $this->model->pets);
 			} elseif ($_GET['func'] == 'avg') {
 				$result = $this->model->getAvgPrice($this->model->pets);
-				// _d($result);
 			}
 			include 'views/view.php';
 		}

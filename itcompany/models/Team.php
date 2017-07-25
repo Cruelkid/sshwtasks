@@ -23,19 +23,13 @@ class Team extends ITcompany
 	{
 		$counter = count($needs);
 		foreach ($members as $member) {
-	// while ($counter >= 1) {
-	// d($counter);
-			// d($counter);
 			foreach ($needs as $key => $value) {
-				// _d($value);
 				if ($counter > 0 && $member->position == $value) {
-				// d($member->position);
 					unset($needs[$key]);
 					$counter = count($needs);
 					break;
 				}
 			}
-	// }
 		}
 		$this->needs = $needs;
 	}
@@ -65,7 +59,6 @@ class Team extends ITcompany
 
 	public function addTeamMember(Candidate $candidate)
     {
-    	// _d($candidate);
         $salary = $candidate->wantedSalary;
         $position = $candidate->cv;
         $name = $candidate->name;
@@ -79,23 +72,6 @@ class Team extends ITcompany
 		}
 
         $this->teamMembers[] = $newTeamMember;
-        // array_push($this->teamMembers, $newTeamMember);
-        // if (count($this->needs) != 0) {
-        	self::equalNeedsWithMembers($this->needs, $this->teamMembers);
-        // }
-        // switch ($position) {
-        //     case 'Dev':
-        //         $newTeamMember = new Dev($name, $salary, $position, $this->name);
-        //         array_push($this->teamMembers, $newTeamMember);
-        //         break;
-        //     case 'PM':
-        //         $newTeamMember = new PM($name, $salary, $position, $this->name);
-        //         array_push($this->teamMembers, $newTeamMember);
-        //         break;
-        //     case 'QC':
-        //         $newTeamMember = new QC($name, $salary, $position, $this->name);
-        //         array_push($this->teamMembers, $newTeamMember);
-        //         break;
-        // }
+        self::equalNeedsWithMembers($this->needs, $this->teamMembers);
     }
 }

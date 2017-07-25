@@ -20,7 +20,7 @@ class HRTeam
 		];
 	}
 
-	public function canFindSpecialist(/*Candidate*/ $need)
+	public function canFindSpecialist($need)
 	{
 		$candidates = $this->itCompany->candidates;
 		foreach ($candidates as $key => $candidate) {
@@ -28,7 +28,7 @@ class HRTeam
 		}
 	}
 
-	public function getSpecialist(/*Candidate*/ $need, ITcompany $company)
+	public function getSpecialist($need, ITcompany $company)
     {
         $cv = $need;
         return $this->recruiters[$cv]->getSpecialist($need, $company);

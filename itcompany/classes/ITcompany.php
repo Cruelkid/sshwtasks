@@ -31,7 +31,6 @@ class ITcompany
 	{
 		foreach ($this->teams as $team) {
 			foreach ($team->teamMembers as $teamMember) {
-				// d($teamMember);
 				echo $teamMember->doWork() . "<br/>";
 			}
 		}

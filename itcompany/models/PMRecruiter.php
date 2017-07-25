@@ -4,7 +4,7 @@ require_once 'classes/Recruiter.php';
 
 class PMRecruiter extends Recruiter
 {
-    public function getSpecialist(/*Candidate*/ $need, ItCompany $company)
+    public function getSpecialist($need, ItCompany $company)
     {
         $candidates = $company->candidates;
         foreach ($candidates as $key => $candidate) {

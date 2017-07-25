@@ -25,8 +25,6 @@ $c7 = new Candidate('Batya4', 600, 'Dev');
 $c8 = new Candidate('Batya5', 600, 'Dev');
 $c9 = new PM('Peka', 700, 'PM', $team1);
 
-// _d($team1->teamMembers);
-
 array_push($team1->teamMembers, $c1);
 array_push($team1->teamMembers, $c2);
 array_push($candidates, $c3);
@@ -38,12 +36,6 @@ array_push($candidates, $c8);
 array_push($team1->teamMembers, $c9);
 $it = new ITcompany($candidates, [$team1, $team2]);
 
-// d($it);
-
 $it->hire($team1);
 
 $it->gotFun();
-
-// d(count($it->teams[0]->teamMembers));
-
-// _d($it);

@@ -1,7 +1,6 @@
 <?php
 abstract class Pet
 {
-	// abstract function isFluffy();
 	abstract function isYourName($name);
 	public function isYourColor($color)
 	{
