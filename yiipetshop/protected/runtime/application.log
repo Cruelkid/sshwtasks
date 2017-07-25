@@ -1,0 +1,92 @@
+2017/07/25 12:19:59 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "Petshop". in C:\Users\User\Downloads\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CController.php(270): CController->missingAction('Petshop')
+#1 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): CController->run('Petshop')
+#2 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('petshop/Petshop')
+#3 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\softserve\yiipetshop\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/softserve/yiipetshop/index.php?r=petshop/Petshop
+HTTP_REFERER=http://localhost/softserve/yiipetshop/index.php?r=Petshop
+---
+2017/07/25 12:34:20 [error] [php] Undefined variable: content (C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php:31)
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CController.php(872): PetshopController->renderFile()
+#1 C:\Users\User\Downloads\yii\framework\web\CController.php(785): PetshopController->renderPartial()
+#2 C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php(7): PetshopController->render()
+#3 C:\Users\User\Downloads\yii\framework\web\actions\CInlineAction.php(49): PetshopController->actionIndex()
+#4 C:\Users\User\Downloads\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Users\User\Downloads\yii\framework\web\CController.php(286): PetshopController->runAction()
+#6 C:\Users\User\Downloads\yii\framework\web\CController.php(265): PetshopController->runActionWithFilters()
+#7 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): PetshopController->run()
+#8 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\softserve\yiipetshop\index.php(13): CWebApplication->run()
+REQUEST_URI=/softserve/yiipetshop/index.php?r=Petshop
+in C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php (31)
+in C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php (7)
+in C:\wamp\www\softserve\yiipetshop\index.php (13)
+2017/07/25 12:37:15 [error] [php] Undefined variable: content (C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php:32)
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CController.php(872): PetshopController->renderFile()
+#1 C:\Users\User\Downloads\yii\framework\web\CController.php(785): PetshopController->renderPartial()
+#2 C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php(7): PetshopController->render()
+#3 C:\Users\User\Downloads\yii\framework\web\actions\CInlineAction.php(49): PetshopController->actionIndex()
+#4 C:\Users\User\Downloads\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Users\User\Downloads\yii\framework\web\CController.php(286): PetshopController->runAction()
+#6 C:\Users\User\Downloads\yii\framework\web\CController.php(265): PetshopController->runActionWithFilters()
+#7 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): PetshopController->run()
+#8 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\softserve\yiipetshop\index.php(13): CWebApplication->run()
+REQUEST_URI=/softserve/yiipetshop/index.php?r=Petshop
+in C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php (32)
+in C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php (7)
+in C:\wamp\www\softserve\yiipetshop\index.php (13)
+2017/07/25 12:37:40 [error] [php] Undefined variable: content (C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php:32)
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CController.php(872): PetshopController->renderFile()
+#1 C:\Users\User\Downloads\yii\framework\web\CController.php(785): PetshopController->renderPartial()
+#2 C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php(7): PetshopController->render()
+#3 C:\Users\User\Downloads\yii\framework\web\actions\CInlineAction.php(49): PetshopController->actionIndex()
+#4 C:\Users\User\Downloads\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\Users\User\Downloads\yii\framework\web\CController.php(286): PetshopController->runAction()
+#6 C:\Users\User\Downloads\yii\framework\web\CController.php(265): PetshopController->runActionWithFilters()
+#7 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): PetshopController->run()
+#8 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\wamp\www\softserve\yiipetshop\index.php(13): CWebApplication->run()
+REQUEST_URI=/softserve/yiipetshop/index.php?r=Petshop
+in C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php (32)
+in C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php (7)
+in C:\wamp\www\softserve\yiipetshop\index.php (13)
+2017/07/25 12:39:05 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "contact". in C:\Users\User\Downloads\yii\framework\web\CController.php:486
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CController.php(270): CController->missingAction('contact')
+#1 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): CController->run('contact')
+#2 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('petshop/contact')
+#3 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\wamp\www\softserve\yiipetshop\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/softserve/yiipetshop/index.php?r=petshop/contact
+HTTP_REFERER=http://localhost/softserve/yiipetshop/index.php?r=Petshop
+---
+2017/07/25 12:42:55 [error] [exception.Error] Error: Class 'yii\helpers\Url' not found in C:\wamp\www\softserve\yiipetshop\protected\views\petshop\index.php:11
+Stack trace:
+#0 C:\Users\User\Downloads\yii\framework\web\CBaseController.php(126): require()
+#1 C:\Users\User\Downloads\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sof...', NULL, true)
+#2 C:\Users\User\Downloads\yii\framework\web\CController.php(872): CBaseController->renderFile('C:\\wamp\\www\\sof...', NULL, true)
+#3 C:\Users\User\Downloads\yii\framework\web\CController.php(785): CController->renderPartial('index', NULL, true)
+#4 C:\wamp\www\softserve\yiipetshop\protected\controllers\PetshopController.php(7): CController->render('index')
+#5 C:\Users\User\Downloads\yii\framework\web\actions\CInlineAction.php(49): PetshopController->actionIndex()
+#6 C:\Users\User\Downloads\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\Users\User\Downloads\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 C:\Users\User\Downloads\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(282): CController->run('')
+#10 C:\Users\User\Downloads\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('Petshop')
+#11 C:\Users\User\Downloads\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#12 C:\wamp\www\softserve\yiipetshop\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/softserve/yiipetshop/index.php?r=Petshop
+HTTP_REFERER=http://localhost/softserve/yiipetshop/index.php?r=site/contact
+---

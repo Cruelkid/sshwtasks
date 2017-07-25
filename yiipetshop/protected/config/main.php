@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'PetShop',
+	'name'=>'PetShop & ITCompany(under construction)',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
