@@ -1,0 +1,38 @@
+{
+	"Cats": [
+		{
+			"name": "Abbath",
+			"color": "black",
+			"fluff": 2,
+			"price": 666
+		},
+		{
+			"name": "Horgh",
+			"color": "white",
+			"fluff": 4,
+			"price": 500
+		}
+	],
+	"Dogs": [
+		{
+			"name": "Hoest",
+			"color": "grey",
+			"price": 700
+		},
+		{
+			"name": "Gaahl",
+			"color": "white",
+			"price": 600
+		}
+	],
+	"Hamsters": [
+		{
+			"color": "orange",
+			"price": 13
+		},
+		{
+			"color": "grey",
+			"price": 11
+		}
+	]
+}
