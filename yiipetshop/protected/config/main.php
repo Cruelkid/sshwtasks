@@ -7,7 +7,9 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'PetShop & ITCompany(under construction)',
+	'name'=>'PetShop',
+    'defaultController' => 'Petshop', 
+    // 'defaultAction' => 'index',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

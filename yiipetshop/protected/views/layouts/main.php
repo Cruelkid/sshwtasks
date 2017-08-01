@@ -29,12 +29,18 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',[
 			'items'=>array(
-				['label'=>'Home', 'url'=>['/site/index']],
-				['label'=>'Petshop', 'url'=>['/Petshop']],
-				['label'=>'About', 'url'=>['/site/page', 'view'=>'about']],
-				['label'=>'Contact', 'url'=>['/site/contact']],
-				['label'=>'Login', 'url'=>['/site/login'], 'visible'=>Yii::app()->user->isGuest],
-				['label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>['/site/logout'], 'visible'=>!Yii::app()->user->isGuest]
+				// ['label'=>'Home', 'url'=>['/site/index']],
+				// ['label'=>'Petshop', 'url'=>['/Petshop']],
+				// ['label'=>'About', 'url'=>['/site/page', 'view'=>'about']],
+				// ['label'=>'Contact', 'url'=>['/site/contact']],
+				// ['label'=>'Login', 'url'=>['/site/login'], 'visible'=>Yii::app()->user->isGuest],
+				// ['label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>['/site/logout'], 'visible'=>!Yii::app()->user->isGuest]
+				['label'=>'Home', 'url'=>['/petshop/index']],
+				['label'=>'Cats', 'url'=>['/petshop/cats']],
+				['label'=>'White', 'url'=>['/petshop/white']],
+				['label'=>'Fluffy', 'url'=>['/petshop/fluffy']],
+				['label'=>'Average', 'url'=>['/petshop/avg']]
+
 			),
 		]); ?>
 	</div><!-- mainmenu -->
